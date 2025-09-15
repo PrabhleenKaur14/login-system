@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User History</title>
+  <link rel="stylesheet" href="/css/styles.css"/>
+</head>
+<body>
+  <%- include('partials/navbar') %>
+  <div class="container">
+    <div class="card">
+      <h2>Login History</h2>
+      <p class="small">
+        <strong>User:</strong> <%= session.user.userName %> &nbsp; | &nbsp;
+        <strong>Email:</strong> <%= session.user.email %>
+      </p>
+
+      <table class="table">
+        <thead><tr><th>Login Date / Time</th><th>Client Information</th></tr></thead>
+        <tbody>
+          <% (session.user.loginHistory || []).forEach(h => { %>
+            <tr>
+              <td><%= h.dateTime %></td>
+              <td><%= h.userAgent %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

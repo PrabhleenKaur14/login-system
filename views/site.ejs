@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>National Historic Sites</title>
+  <link rel="stylesheet" href="/css/styles.css"/>
+</head>
+<body>
+  <%- include('partials/navbar') %>
+  <div class="container">
+    <div class="hero">
+      <div class="card">
+        <h1>National Historic Sites</h1>
+        <p class="muted">Explore, add, and manage historic places. Authentication protects add/edit/delete.</p>
+        <% if (session && session.user) { %>
+          <a class="btn" href="/addSite">Add a Site</a>
+          <a class="btn secondary" href="/userHistory">View Login History</a>
+        <% } else { %>
+          <a class="btn" href="/login">Login</a>
+          <a class="btn secondary" href="/register">Create Account</a>
+        <% } %>
+      </div>
+
+      <div class="card">
+        <h2>What’s included</h2>
+        <ul class="small">
+          <li>Secure login with hashed passwords (bcrypt)</li>
+          <li>Session-based access control</li>
+          <li>PostgreSQL users &amp; login history</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

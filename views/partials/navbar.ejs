@@ -1,0 +1,20 @@
+<nav>
+  <div class="nav-inner">
+    <div class="brand">Historic Sites</div>
+
+    <a href="/sites" class="nav-link <%= (page === '/sites') ? 'active' : '' %>">Sites</a>
+    <a href="/about" class="nav-link <%= (page === '/about') ? 'active' : '' %>">About</a>
+
+    <div class="nav-spacer"></div>
+
+    <% if (session && session.user) { %>
+      <span class="small">Signed in as <strong><%= session.user.userName %></strong></span>
+      <a href="/addSite" class="nav-link <%= (page === '/addSite') ? 'active' : '' %>">Add Site</a>
+      <a href="/userHistory" class="nav-link <%= (page === '/userHistory') ? 'active' : '' %>">User History</a>
+      <a href="/logout" class="nav-link">Log Out</a>
+    <% } else { %>
+      <a href="/login" class="nav-link <%= (page === '/login') ? 'active' : '' %>">Login</a>
+      <a href="/register" class="nav-link <%= (page === '/register') ? 'active' : '' %>">Register</a>
+    <% } %>
+  </div>
+</nav>

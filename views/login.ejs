@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+  <link rel="stylesheet" href="/css/styles.css"/>
+</head>
+<body>
+  <%- include('partials/navbar') %>
+  <div class="container">
+    <div class="grid cols-2">
+      <div class="card">
+        <h2>Welcome back</h2>
+        <form method="POST" action="/login">
+          <label>User Name</label>
+          <input type="text" name="userName" required value="<%= userName || '' %>"/>
+          <label>Password</label>
+          <input type="password" name="password" required/>
+          <button type="submit">Login</button>
+        </form>
+        <% if (errorMessage) { %>
+          <div class="alert error"><%= errorMessage %></div>
+        <% } %>
+      </div>
+
+      <div class="card">
+        <h2>New here?</h2>
+        <p class="small">Create an account to access protected features.</p>
+        <a class="btn" href="/register">Register</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
